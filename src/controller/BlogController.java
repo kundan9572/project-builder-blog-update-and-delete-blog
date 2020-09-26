@@ -87,9 +87,7 @@ public class BlogController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/blog-form.jsp");
 		request.setAttribute("todo", existingTodo);
 		dispatcher.forward(request, response);
-
 	}
-
 	private void insertBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		String title = request.getParameter("title");
@@ -104,7 +102,6 @@ public class BlogController extends HttpServlet {
 		blogDAO.insertBlog(newTodo);
 		response.sendRedirect("list");
 	}
-
 	private void updateBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
@@ -126,7 +123,6 @@ public class BlogController extends HttpServlet {
 		
 		response.sendRedirect("list");
 	}
-
 	private void deleteBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		blogDAO.deleteBlog(id);
